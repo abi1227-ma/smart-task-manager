@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="brand-logo">TF</div>
+
+            <div>
+                <h2>TaskFlow</h2>
+                <p>Productivity Hub</p>
+            </div>
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="sidebar-nav">
+
+            <button id="dashboardNav" class="nav-item active">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </button>
+
+            <button id="myTasksNav" class="nav-item">
+                <span>✓</span>
+                <span>My Tasks</span>
+            </button>
+
+            <button id="completedNav" class="nav-item">
+                <span>▣</span>
+                <span>Completed</span>
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-tip">
+                <span>✦</span>
+
+                <div>
+                    <strong>Small steps.</strong>
+                    <p>Big progress.</p>
+                </div>
+            </div>
+
+            <button id="logoutButton" class="logout-button">
+                <span>↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="dashboard-main">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div>
+                <span class="dashboard-label">YOUR WORKSPACE</span>
+
+                <h1>
+                    Hello, <span id="userName">Student</span> 👋
+                </h1>
+
+                <p>Let's turn today's plans into progress.</p>
+            </div>
+
+
+            <div class="header-actions">
+
+                <!-- THEME BUTTON -->
+                <button
+                    id="themeButton"
+                    class="icon-button"
+                    title="Toggle dark/light mode">
+                    ☼
+                </button>
+
+
+                <!-- USER -->
+                <div class="user-profile">
+
+                    <div class="user-avatar" id="userAvatar">
+                        S
+                    </div>
+
+                    <div>
+                        <strong id="profileName">Student</strong>
+                        <span id="profileEmail">
+                            student@example.com
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Total Tasks</span>
+                    <strong id="totalTasks">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon pink">
+                    ◉
+                </div>
+
+                <div>
+                    <span>Completed</span>
+                    <strong id="completedTasks">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ◷
+                </div>
+
+                <div>
+                    <span>Pending</span>
+                    <strong id="pendingTasks">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    %
+                </div>
+
+                <div>
+                    <span>Progress</span>
+                    <strong id="progressPercent">0%</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASK MANAGEMENT -->
+        <section id="taskSection" class="task-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="dashboard-label">
+                        TASK MANAGEMENT
+                    </span>
+
+                    <h2>My Tasks</h2>
+                </div>
+
+                <button
+                    id="addTaskButton"
+                    class="add-task-button">
+                    + Add New Task
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="task-toolbar">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search your tasks...">
+
+                </div>
+
+
+                <!-- FILTER -->
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter-button active"
+                        data-filter="all">
+                        All
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="active">
+                        Active
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="completed">
+                        Completed
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TASK LIST -->
+            <div id="taskList">
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        ✦
+                    </div>
+
+                    <h3>No tasks yet</h3>
+
+                    <p>
+                        Add your first task and start making progress.
+                    </p>
+
+                    <button
+                        id="emptyAddButton"
+                        class="add-task-button">
+                        + Create Your First Task
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TASK MODAL -->
+    <div id="taskModal" class="modal hidden">
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="dashboard-label">
+                        NEW TASK
+                    </span>
+
+                    <h2>Create a Task</h2>
+                </div>
+
+                <button
+                    id="closeModal"
+                    class="close-modal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="taskForm">
+
+                <div class="form-group">
+
+                    <label for="taskTitle">
+                        Task Title
+                    </label>
+
+                    <input
+                        id="taskTitle"
+                        type="text"
+                        placeholder="e.g. Complete assignment"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="taskDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="taskDescription"
+                        placeholder="Add some details..."
+                        rows="4"></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="taskCategory">
+                            Category
+                        </label>
+
+                        <select id="taskCategory">
+
+                            <option value="College">
+                                College
+                            </option>
+
+                            <option value="Internship">
+                                Internship
+                            </option>
+
+                            <option value="Personal">
+                                Personal
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="taskPriority">
+                            Priority
+                        </label>
+
+                        <select id="taskPriority">
+
+                            <option value="Low">
+                                Low
+                            </option>
+
+                            <option value="Medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="High">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="taskDueDate">
+                        Due Date
+                    </label>
+
+                    <input
+                        id="taskDueDate"
+                        type="date">
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelTask"
+                        class="cancel-button">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="create-button">
+                        Create Task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

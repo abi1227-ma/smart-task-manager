@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow | Smart Student Productivity Hub</title>
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         AUTHENTICATION PAGE
+    ========================== -->
+
+    <main class="auth-page">
+
+        <!-- Left side -->
+        <section class="auth-intro">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    TF
+                </div>
+
+                <div>
+                    <h1>TaskFlow</h1>
+                    <p>Smart Student Productivity Hub</p>
+                </div>
+
+            </div>
+
+
+            <div class="intro-content">
+
+                <span class="intro-tag">
+                    STUDY • PLAN • ACHIEVE
+                </span>
+
+                <h2>
+                    Turn your busy days
+                    into <span>beautiful progress.</span>
+                </h2>
+
+                <p>
+                    Organize your college work, internship goals
+                    and personal tasks in one simple workspace.
+                </p>
+
+                <div class="feature-list">
+
+                    <div class="feature">
+                        <span>✓</span>
+                        <p>Organize your daily tasks</p>
+                    </div>
+
+                    <div class="feature">
+                        <span>✓</span>
+                        <p>Track your progress</p>
+                    </div>
+
+                    <div class="feature">
+                        <span>✓</span>
+                        <p>Stay focused on what matters</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="intro-footer">
+                Built for students who want to do more.
+            </div>
+
+        </section>
+
+
+        <!-- Right side -->
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+                <!-- LOGIN -->
+
+                <div id="loginView">
+
+                    <div class="form-heading">
+
+                        <span class="small-label">
+                            WELCOME BACK
+                        </span>
+
+                        <h2>
+                            Sign in & get things done
+                        </h2>
+
+                        <p>
+                            Welcome back! Let's continue
+                            your productive journey.
+                        </p>
+
+                    </div>
+
+
+                    <form id="loginForm">
+
+                        <div class="input-group">
+
+                            <label for="loginEmail">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Sign In
+                        </button>
+
+                    </form>
+
+
+                    <div class="switch-text">
+
+                        Don't have an account?
+
+                        <button
+                            type="button"
+                            id="showRegister"
+                        >
+                            Create one
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REGISTER -->
+
+                <div id="registerView" class="hidden">
+
+                    <div class="form-heading">
+
+                        <span class="small-label">
+                            GET STARTED
+                        </span>
+
+                        <h2>
+                            Create your account
+                        </h2>
+
+                        <p>
+                            Start organizing your student life
+                            in one beautiful place.
+                        </p>
+
+                    </div>
+
+
+                    <form id="registerForm">
+
+                        <div class="input-group">
+
+                            <label for="registerName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="Your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="registerEmail">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="registerPassword">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Minimum 6 characters"
+                                minlength="6"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                        >
+                            Create Account
+                        </button>
+
+                    </form>
+
+
+                    <div class="switch-text">
+
+                        Already have an account?
+
+                        <button
+                            type="button"
+                            id="showLogin"
+                        >
+                            Sign in
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
